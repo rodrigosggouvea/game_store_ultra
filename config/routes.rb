@@ -1,4 +1,12 @@
 GameStoreUltra::Application.routes.draw do
+  match 'auth/:provider/callback', to: 'sessions#create'
+  match 'auth/failure', to: redirect('/')
+  match 'signout', to: 'sessions#destroy', as: 'signout'
+
+  resources :offers
+
+  resources :users
+
   root :to => 'application#index'
   match 'under_contsruction' => 'application#under_contsruction'
   # The priority is based upon order of creation:
