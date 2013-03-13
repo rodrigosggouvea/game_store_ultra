@@ -1,11 +1,9 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery
+  # protect_from_forgery
 
-  before_filter :under_construction
+  # before_filter :under_construction
 
   def index
-    ap session
-    debugger
   end
 
   def under_construction
