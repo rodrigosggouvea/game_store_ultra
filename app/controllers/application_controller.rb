@@ -1,18 +1,9 @@
 class ApplicationController < ActionController::Base
   # protect_from_forgery
 
-  # before_filter :under_construction
-
   def index
+    redirect_to iser_dashboard(session[:user_id]) if current_user
   end
-
-  def under_construction
-  	if (Rails.env == "development" || Rails.env == "test")
-  		render "index" 
-  	else
-	  	render "under_construction"
-  	end
-	end
 
   private
 

@@ -5,7 +5,11 @@ GameStoreUltra::Application.routes.draw do
 
   resources :offers
 
-  resources :users
+  resources :users do
+    member do 
+      get 'dashboard'
+    end
+  end
 
   root :to => 'application#index'
   match 'under_contsruction' => 'application#under_contsruction'

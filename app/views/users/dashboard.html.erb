@@ -1,0 +1,12 @@
+<h1>Dashboard</h1>
+<% if @offers.any? %>
+	<h2>Minhas Ofertas</h2>
+	<% @offers.each do |offer| %>
+		<%= link_to offer do %>
+			<div class="dashboard_offer">
+				<%= offer.title.name %>
+				<%= offer.text %>
+			</div>
+		<% end %>
+	<% end %>
+<% end %>

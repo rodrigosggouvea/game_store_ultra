@@ -1,5 +1,13 @@
 
 class UsersController < ApplicationController
+  def dashboard
+    @user = User.find(params[:id])
+    @offers = @user.offers
+    respond_to do |format|
+      format.html # dashboard.html.erb
+      format.json { render json: @offers }
+    end
+  end
   # GET /users
   # GET /users.json
   def index
