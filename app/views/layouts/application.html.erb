@@ -12,7 +12,18 @@
 	<br/>
 	<br/>
 	<br/>
+	<% if params[:controller] == "application" and params[:action] == "index" %>
 	<%= yield %>
+	<% else %>
+	<div class="row">
+		<div class="span3">
+			<%= render "side_menu" %>
+		</div>
+		<div class="span9">
+			<%= yield %>
+		</div>
+	</div>
+	<% end %>
 	<%= render "footer" %>
 </div>
 </body>

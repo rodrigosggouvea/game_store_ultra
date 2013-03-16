@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   # protect_from_forgery
 
   def index
-    redirect_to iser_dashboard(session[:user_id]) if current_user
+    redirect_to user_dashboard_path(session[:user_id]) if current_user
   end
 
   private
