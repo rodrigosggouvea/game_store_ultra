@@ -1,4 +1,4 @@
-<%= form_for(@offer) do |f| %>
+<%= nested_form_for(@offer) do |f| %>
   <% if @offer.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@offer.errors.count, "error") %> prohibited this offer from being saved:</h2>
@@ -12,12 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :platform_title_id %><br />
-    <%= f.number_field :platform_title_id %>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
   </div>
   <div class="field">
     <%= f.label :price %><br />
@@ -26,6 +22,16 @@
   <div class="field">
     <%= f.label :text %><br />
     <%= f.text_area :text %>
+  </div>
+  <div class="images">
+    <h3>Imagens</h3>
+    <%= f.fields_for :offer_images do |offer_image| %>
+      <div class="field">
+        <%= offer_image.file_field :imagem %>
+        <%= offer_image.link_to_remove "Remover Imagem" %>
+      </div>
+    <% end %>
+    <%= f.link_to_add "Adicionar Imagem", :offer_images %>    
   </div>
   <div class="actions">
     <%= f.submit %>

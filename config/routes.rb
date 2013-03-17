@@ -3,7 +3,11 @@ GameStoreUltra::Application.routes.draw do
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'
 
-  resources :offers
+  resources :offers do
+    collection do
+      get 'search'
+    end
+  end
 
   resources :users do
     member do 

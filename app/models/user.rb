@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+	has_many :offers
   attr_accessible :bio, :name, :ocupation
 
 def self.from_omniauth(auth)

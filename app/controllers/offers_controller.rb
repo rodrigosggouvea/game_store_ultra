@@ -3,13 +3,22 @@ class OffersController < ApplicationController
   # GET /offers
   # GET /offers.json
   def index
-    @offers = Offer.all
+    @offers = Offer.where(:user_id => current_user)
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @offers }
     end
   end
+
+  def search
+    @offers = Offer.search(params[:search])
+    respond_to do |format|
+      format.html # search.html.erb
+      format.json { render json: @offers }
+    end
+  end
+
 
   # GET /offers/1
   # GET /offers/1.json

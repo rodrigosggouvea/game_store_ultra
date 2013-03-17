@@ -1,0 +1,19 @@
+<h1>Pesquisar</h1>
+<%= form_for @offers, :url => search_offers_path, :html => {:method => :get} do |f| %>
+  <%= f.label :title_or_text_contains %>
+  <%= f.text_field :title_or_text_contains %><br />
+  <%= f.submit, "Pesquisar" %>
+<% end %>
+<hr\>
+<% if @offers.any? %>
+	<table class = "table">
+		<% @offers.each do |offer| %>
+			<%= link_to offer do %>
+				<%= image_tag ofer.offer_images.first.image.url(:thumb) %>	
+				<%= offer.title %>
+				<%= offer.price %>
+			<% end %>
+			<hr\>
+		<% end %>
+	</table>
+<% end %>

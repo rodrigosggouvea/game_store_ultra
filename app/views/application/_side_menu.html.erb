@@ -1,1 +1,8 @@
-<ul></ul>
+<%= image_tag "http://graph.facebook.com/#{User.find(current_user).uid}/picture" %>
+<h4><%= User.find(current_user).name %></h4>
+<ul>
+	<li><%= link_to "Perfil", edit_user_path(current_user) %></li>
+	<li><%= link_to "Pesquisar Ofertas", search_offers_path %></li>
+	<li><%= link_to "Minhas Ofertas", offers_path %></li>
+	<li><%= link_to "Nova Oferta", new_offer_path %></li>
+</ul>

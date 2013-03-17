@@ -6,7 +6,10 @@ gem 'rails', '3.2.5'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-
+gem 'sqlite3'
+gem "paperclip", "~> 3.0"
+gem 'nested_form'
+gem "meta_search"
 # gem 'debugger'
 # gem 'ruby-debug19'
 # gem 'pry'
