@@ -35,7 +35,7 @@ class OffersController < ApplicationController
   # GET /offers/new.json
   def new
     @offer = Offer.new
-
+    @offer.offer_images.build
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @offer }
@@ -51,7 +51,7 @@ class OffersController < ApplicationController
   # POST /offers.json
   def create
     @offer = Offer.new(params[:offer])
-
+    @offer.offer_images.build
     respond_to do |format|
       if @offer.save
         format.html { redirect_to @offer, notice: 'Offer was successfully created.' }

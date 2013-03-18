@@ -2,10 +2,10 @@
 <%= form_for @offers, :url => search_offers_path, :html => {:method => :get} do |f| %>
   <%= f.label :title_or_text_contains %>
   <%= f.text_field :title_or_text_contains %><br />
-  <%= f.submit, "Pesquisar" %>
+  <%= f.submit "Pesquisar", :class => "btn-primary btn-large" %>
 <% end %>
 <hr\>
-<% if @offers.any? %>
+<% if @offers %>
 	<table class = "table">
 		<% @offers.each do |offer| %>
 			<%= link_to offer do %>
