@@ -1,7 +1,5 @@
 
 class OffersController < ApplicationController
-  # GET /offers
-  # GET /offers.json
   def index
     @offers = Offer.where(:user_id => current_user)
 
@@ -19,9 +17,6 @@ class OffersController < ApplicationController
     end
   end
 
-
-  # GET /offers/1
-  # GET /offers/1.json
   def show
     @offer = Offer.find(params[:id])
 
@@ -31,8 +26,6 @@ class OffersController < ApplicationController
     end
   end
 
-  # GET /offers/new
-  # GET /offers/new.json
   def new
     @offer = Offer.new
     @offer.offer_images.build
@@ -42,16 +35,14 @@ class OffersController < ApplicationController
     end
   end
 
-  # GET /offers/1/edit
   def edit
     @offer = Offer.find(params[:id])
   end
 
-  # POST /offers
-  # POST /offers.json
   def create
     @offer = Offer.new(params[:offer])
     @offer.offer_images.build
+    @offer.user_id = current_user.id
     respond_to do |format|
       if @offer.save
         format.html { redirect_to @offer, notice: 'Offer was successfully created.' }
@@ -63,8 +54,6 @@ class OffersController < ApplicationController
     end
   end
 
-  # PUT /offers/1
-  # PUT /offers/1.json
   def update
     @offer = Offer.find(params[:id])
 
@@ -79,8 +68,6 @@ class OffersController < ApplicationController
     end
   end
 
-  # DELETE /offers/1
-  # DELETE /offers/1.json
   def destroy
     @offer = Offer.find(params[:id])
     @offer.destroy
@@ -89,5 +76,18 @@ class OffersController < ApplicationController
       format.html { redirect_to offers_url }
       format.json { head :no_content }
     end
+  end
+
+  def pagamento
+    
+  end
+
+  def gerar_boleto
+  end
+
+  def pagamento_cartao
+  end
+
+  def pagamento_paypal
   end
 end

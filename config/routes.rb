@@ -6,6 +6,10 @@ GameStoreUltra::Application.routes.draw do
   resources :offers do
     collection do
       get 'search'
+      post 'pagamento'
+      get 'gerar_boleto'
+      get 'pagamento_cartao'
+      get 'pagamento_paypal'
     end
   end
 

@@ -9,9 +9,11 @@
 	<table class = "table">
 		<% @offers.each do |offer| %>
 			<%= link_to offer do %>
-				<%= image_tag ofer.offer_images.first.image.url(:thumb) %>	
-				<%= offer.title %>
-				<%= offer.price %>
+			<tr>
+				<td><%= image_tag offer.offer_images.first.image.url(:thumb) %></td>
+				<td><%= offer.title %></td>
+				<td><%= offer.price %></td>
+			</tr>
 			<% end %>
 			<hr\>
 		<% end %>

@@ -23,16 +23,16 @@
     <%= f.label :text %><br />
     <%= f.text_area :text %>
   </div>
-  <div class="images">
-    <h3>Imagens</h3>
-    <%= f.fields_for :offer_images do |offer_image| %>
-      <div class="field">
-        <%= offer_image.file_field :imagem %>
-        <%= offer_image.link_to_remove "Remover Imagem" %>
-      </div>
-    <% end %>
-    <%= f.link_to_add "Adicionar Imagem", :offer_images %>    
-  </div>
+  <!-- <div class="images"> -->
+    <!-- <h3>Imagens</h3> -->
+    <%#= f.fields_for :offer_images do |offer_image| %>
+      <!-- <div class="field"> -->
+        <%#= offer_image.file_field :imagem %>
+        <%#= offer_image.link_to_remove "Remover Imagem" %>
+      <!-- </div> -->
+    <%# end %>
+    <%#= f.link_to_add "Adicionar Imagem", :offer_images %>    
+  <!-- </div> -->
   <div class="actions">
     <%= f.submit "Salvar", :class => "btn-primary btn-large" %>
   </div>

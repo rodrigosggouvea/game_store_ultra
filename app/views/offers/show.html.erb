@@ -2,24 +2,46 @@
 
 <p>
   <b>User:</b>
-  <%= @offer.user_id %>
+  <%= @offer.user.name %>
 </p>
 
 <p>
-  <b>Platform title:</b>
-  <%= @offer.platform_title_id %>
+	<h3><%= @offer.title %></h3>
 </p>
 
 <p>
-  <b>Price:</b>
+  <b>Preço</b>
   <%= @offer.price %>
 </p>
 
 <p>
-  <b>Text:</b>
+  <b>Descrição</b>
   <%= @offer.text %>
 </p>
 
+<%= linkt_to "Comprar", "", :class => "btn btn-primary btn-large", :id => "botao_comprar" if current_user != @offer.user %>
 
-<%= link_to 'Edit', edit_offer_path(@offer) %> |
-<%= link_to 'Back', offers_path %>
+<div id="tipo_compra">
+	<%= form_tag pagamento_offers_path do %>
+		<%= hidden_field_tag :preco, :value => @offer.price %>
+		<%= hidden_field_tag :offer_id, :value => @offer.id %>
+		<%= label_tag :forma, "Escolha forma de pagamento:" %>
+		<label class="radio">
+			<%= radio_button_tag :forma, "Boleto" %>
+			Boleto Bancário
+		</label>
+		<label class="radio">
+			<%= radio_button_tag :forma, "Cartão" %>
+			Cartão de crédito
+		</label>
+		<label class="radio">
+			<%= radio_button_tag :forma, "PayPal" %>
+			Paypal
+		</label>
+	  <%= submit_tag "Pagar", :class => "btn btn-primary btn-large" %>
+	<% end %>
+</div>
+
+<%= link_to 'Editar', edit_offer_path(@offer), :class => "btn btn-primary btn-large" if @offer.user == current_user %>
+
+<%= link_to 'Voltar', offers_path, :class => "btn btn-primary btn-large" %>
