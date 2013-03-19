@@ -1,4 +1,4 @@
-
+# encoding:UTF-8
 class OffersController < ApplicationController
   def index
     @offers = Offer.where(:user_id => current_user)
@@ -79,15 +79,29 @@ class OffersController < ApplicationController
   end
 
   def pagamento
-    
+    tipo_pagamento = case params[:forma]
+    when "Boleto" then PagamentoBoleto.new
+    when "Cartão" then PagamentoCartao.new
+    when "PayPal" then PagamentoPaypal.new
+    else nil
+    end
+    pagamento = Pagamento.new(tipo_pagamento)
+    action = pagamento.pagar
+    redirect_to :action => action, :params => params
   end
 
   def gerar_boleto
+    render :layout => false
   end
 
   def pagamento_cartao
+    @bandeiras = ["selecionar bandeira:", "VISA", "MASTERCARD","AMERICAN EXPRESS"]
   end
 
   def pagamento_paypal
+    render "finalizar"
+  end
+
+  def finalizar
   end
 end

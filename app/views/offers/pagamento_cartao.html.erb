@@ -1,0 +1,6 @@
+<h1>Pagamento por cartão de crédito</h1>
+<%= form_tag finalizar_offers_path, :method => :get do %>
+	<%= select_tag :bandeira, options_for_select(@bandeiras) %><br/>
+	<%= text_field_tag :numero, "", :placeholder => "número do cartão" %><br/>
+  <%= submit_tag "Comprar",:class => "btn btn-primary btn-large" %><br/>
+<% end %>

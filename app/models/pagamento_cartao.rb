@@ -1,5 +1,5 @@
 class PagamentoCartao
-	def pagar(params)
-		redirect_to pagamento_cartao_users_path(params)
+	def pagar
+		"pagamento_cartao"
 	end
 end

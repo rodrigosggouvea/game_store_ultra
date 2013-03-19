@@ -10,6 +10,7 @@ GameStoreUltra::Application.routes.draw do
       get 'gerar_boleto'
       get 'pagamento_cartao'
       get 'pagamento_paypal'
+      get 'finalizar'
     end
   end
 

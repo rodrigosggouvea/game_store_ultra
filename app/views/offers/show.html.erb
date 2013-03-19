@@ -23,8 +23,8 @@
 
 <div id="tipo_compra">
 	<%= form_tag pagamento_offers_path do %>
-		<%= hidden_field_tag :preco, :value => @offer.price %>
-		<%= hidden_field_tag :offer_id, :value => @offer.id %>
+		<%= hidden_field_tag :preco, @offer.price %>
+		<%= hidden_field_tag :offer_id, @offer.id %>
 		<%= label_tag :forma, "Escolha forma de pagamento:" %>
 		<label class="radio">
 			<%= radio_button_tag :forma, "Boleto" %>

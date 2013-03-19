@@ -3,7 +3,7 @@ class Pagamento
     @classe_pagamento = classe_pagamento
   end
 
-  def pagar(params)
-    @classe_pagamento.pagar(params)
+  def pagar
+    @classe_pagamento.pagar
   end
 end
