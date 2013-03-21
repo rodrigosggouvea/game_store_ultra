@@ -36,9 +36,8 @@
   <%= @offer.text %>
 </p>
 
-<%= linkt_to "Comprar", "", :class => "btn btn-primary btn-large", :id => "botao_comprar" if current_user != @offer.user %>
-
-<div id="tipo_compra">
+<%= link_to "Comprar", "#", :class => "btn btn-primary btn-large", :id => "botao_comprar" if current_user != @offer.user %>
+<div id="tipo_compra" class="hide">
 	<%= form_tag pagamento_offers_path do %>
 		<%= hidden_field_tag :preco, @offer.price %>
 		<%= hidden_field_tag :offer_id, @offer.id %>
@@ -65,7 +64,7 @@
 
 <div class="iffer_questions">
 	<h3>Perguntas</h3>
-	<table class"table">
+	<table class="table">
 		<tbody>
 			<tr><td>
 				<%= form_tag create_question_offers_path do %>
@@ -82,3 +81,12 @@
 	</table>
 
 </div>
+
+<script type="text/javascript">
+  $(function(){
+    $('#botao_comprar').click(function(evt){
+      evt.preventDefault();
+      $('#tipo_compra').slideDown();
+    })
+  })
+</script>
