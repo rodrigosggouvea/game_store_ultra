@@ -6,7 +6,9 @@
 	<% @offers.each do |offer| %>
 		<tr>
 			<td><%= link_to offer.title, offer %></td>
-			<td><%= link_to offer.text, offer %></td>
+			<td><%= link_to offer.text, offer %></td>    
+			<td><%= link_to 'Editar', edit_offer_path(offer) %></td>
+    <td><%= link_to 'Apagar', offer, confirm: 'Tem certeza?', method: :delete %></td>
 		</tr>
 	<% end %>
 		</tbody>
