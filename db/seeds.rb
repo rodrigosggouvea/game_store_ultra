@@ -5,3 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Manufacturer.create(:name => "Sony")
+Manufacturer.create(:name => "Microsoft")
+Manufacturer.create(:name => "Nintendo")
+
+Platform.create(:name => "3DS", :manufacturer => Manufacturer.find_by_nome("Nintendo"))
+Platform.create(:name => "Wii", :manufacturer => Manufacturer.find_by_nome("Nintendo"))
+Platform.create(:name => "Playstation 3", :manufacturer => Manufacturer.find_by_nome("Sony"))
+Platform.create(:name => "PSP", :manufacturer => Manufacturer.find_by_nome("Sony"))
+Platform.create(:name => "PSvita", :manufacturer => Manufacturer.find_by_nome("Sony"))
+
+Platform.create(:name => "Xbox 360", :manufacturer => Manufacturer.find_by_nome("Microsoft"))
+Platform.create(:name => "PC", :manufacturer => Manufacturer.find_by_nome("Microsoft"))
