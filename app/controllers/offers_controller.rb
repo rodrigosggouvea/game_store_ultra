@@ -41,6 +41,7 @@ class OffersController < ApplicationController
 
   def create
     @offer = Offer.new(params[:offer])
+    @offer.price = params[:offer][:price].gsub("R$","").gsub(".","").gsub(",",".").to_f
     @offer.user_id = current_user.id
     respond_to do |format|
       if @offer.save
