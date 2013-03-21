@@ -1,12 +1,29 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>User:</b>
-  <%= @offer.user.name %>
+	<h3><%= @offer.title %></h3>
 </p>
 
+<!-- <div id="myCarousel" class="carousel slide">
+<ol class="carousel-indicators">
+	<%# @offer.offer_images.each_with_index do |offer_image, i| %>
+		<li data-target="#myCarousel" data-slide-to="<%#= i %>" <%#= i==0 ? 'class="active"' : '' %>></li>
+	<%# end %>
+</ol>
+<div class="carousel-inner">
+	<%# @offer.offer_images.each_with_index do |offer_image, i| %>
+		<div class="<%#= i==0 ? 'active item' : 'item' %>">
+			<%#= image_tag offer_image.image.url(:medium) %>
+		</div>
+	<%# end %>
+</div>
+<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div> -->
+
 <p>
-	<h3><%= @offer.title %></h3>
+  <b>User:</b>
+  <%= @offer.user.name %>
 </p>
 
 <p>

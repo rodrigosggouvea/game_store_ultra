@@ -41,7 +41,6 @@ class OffersController < ApplicationController
 
   def create
     @offer = Offer.new(params[:offer])
-    @offer.offer_images.build
     @offer.user_id = current_user.id
     respond_to do |format|
       if @offer.save
