@@ -5,7 +5,7 @@
 	<li class="<%= params[:action]=='dashboard' ? 'active' : '' %>">
 		<%= link_to "Dashboard", dashboard_user_path(current_user) %>
 	</li>
-	<li class="<%= params[:controller]=='users' ? 'active' : '' %>">
+	<li class="<%= params[:controller]=='users' and params[:action]=='dashboard' ? 'active' : '' %>">
 		<%= link_to "Perfil", edit_user_path(current_user) %>
 	</li>
 	<li class="<%= params[:action]=='search' ? 'active' : '' %>">

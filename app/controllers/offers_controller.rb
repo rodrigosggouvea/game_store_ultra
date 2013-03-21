@@ -77,6 +77,25 @@ class OffersController < ApplicationController
     end
   end
 
+  def create_question
+    params[:question] = {}
+    params[:question][:offer_id] = params[:offer_id]
+    params[:question][:user_id] = params[:user_id]
+    params[:question][:text] = params[:text]
+    @offer= Offer.find(params[:offer_id])
+    binding.pry
+    @question = Question.new(params[:question])
+    respond_to do |format|
+      if @question.save
+        format.html { redirect_to @offer, notice: 'question was successfully created.' }
+        format.json { render json: @question, status: :created, location: @question }
+      else
+        format.html { render :show }
+        format.json { render json: @question.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def pagamento
     tipo_pagamento = case params[:forma]
     when "Boleto" then PagamentoBoleto.new

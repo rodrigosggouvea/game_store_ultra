@@ -62,3 +62,23 @@
 <%= link_to 'Editar', edit_offer_path(@offer), :class => "btn btn-primary btn-large" if @offer.user == current_user %>
 
 <%= link_to 'Voltar', offers_path, :class => "btn btn-primary btn-large" %>
+
+<div class="iffer_questions">
+	<h3>Perguntas</h3>
+	<table class"table">
+		<tbody>
+			<tr><td>
+				<%= form_tag create_question_offers_path do %>
+					<%= hidden_field_tag :user_id, current_user.id %>
+					<%= hidden_field_tag :offer_id, @offer.id %>
+					<%= text_area_tag :text, "", :placeholder => "Escreve seu comentário..." %>
+					<%= submit_tag "Salvar", :class => "btn-primary" %>
+				<% end -%>
+			</td></tr>
+			<% @offer.questions.each do |question| %>
+				<tr><td><%= question.user.name %></td><td><%= question.text %></td></tr>
+			<% end %>
+		</tbody>
+	</table>
+
+</div>

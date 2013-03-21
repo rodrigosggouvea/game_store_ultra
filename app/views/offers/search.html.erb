@@ -10,7 +10,7 @@
 		<% @offers.each do |offer| %>
 			<%= link_to offer do %>
 			<tr>
-				<td><%= image_tag offer.offer_images.first.image.url(:thumb) %></td>
+				<!--td><%#= image_tag offer.offer_images.first.image.url(:thumb) %></td-->
 				<td><%= offer.title %></td>
 				<td><%= offer.price %></td>
 			</tr>

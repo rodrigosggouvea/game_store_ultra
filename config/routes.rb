@@ -11,6 +11,7 @@ GameStoreUltra::Application.routes.draw do
       get 'pagamento_cartao'
       get 'pagamento_paypal'
       get 'finalizar'
+      post 'create_question'
     end
   end
 
