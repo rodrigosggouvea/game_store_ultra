@@ -1,12 +1,16 @@
 <h1>Dashboard</h1>
 <% if @offers.any? %>
 	<h2>Minhas Ofertas</h2>
+	<table class="table">
+		<tbody>
 	<% @offers.each do |offer| %>
-		<%= link_to offer do %>
-			<div class="dashboard_offer">
-				<%= offer.title %>
-				<%= offer.text %>
-			</div>
-		<% end %>
+		<tr>
+			<td><%= link_to offer.title, offer %></td>
+			<td><%= link_to offer.text, offer %></td>    
+			<td><%= link_to 'Editar', edit_offer_path(offer) %></td>
+    <td><%= link_to 'Apagar', offer, confirm: 'Tem certeza?', method: :delete %></td>
+		</tr>
 	<% end %>
+		</tbody>
+	</table>
 <% end %>

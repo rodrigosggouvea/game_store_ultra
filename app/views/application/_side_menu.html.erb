@@ -11,9 +11,9 @@
 	<li class="<%= params[:action]=='search' ? 'active' : '' %>">
 		<%= link_to "Pesquisar Ofertas", search_offers_path %>
 	</li>
-	<li class="<%= params[:action]=='index' and params[:controller] == 'offers' ? 'active' : '' %>">
-		<%= link_to "Minhas Ofertas", offers_path %>
-	</li>
+	<!--li class="<%#= params[:action]=='index' and params[:controller] == 'offers' ? 'active' : '' %>">
+		<%#= link_to "Minhas Ofertas", offers_path %>
+	</li-->
 	<li class="<%= params[:action]=='new' and params[:controller] == 'offers' ? 'active' : '' %>">
 		<%= link_to "Nova Oferta", new_offer_path %>
 	</li>

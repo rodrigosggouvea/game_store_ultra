@@ -28,7 +28,7 @@
 
 <p>
   <b>Preço</b>
-  <%= @offer.price %>
+  <%= "R$ #{@offer.price}" %>
 </p>
 
 <p>
@@ -54,13 +54,13 @@
 			<%= radio_button_tag :forma, "PayPal" %>
 			Paypal
 		</label>
-	  <%= submit_tag "Pagar", :class => "btn btn-primary btn-large" %>
+	  <%= submit_tag "Pagar", :class => "btn btn-primary" %>
 	<% end %>
 </div>
 
-<%= link_to 'Editar', edit_offer_path(@offer), :class => "btn btn-primary btn-large" if @offer.user == current_user %>
+<%= link_to 'Editar', edit_offer_path(@offer), :class => "btn btn-primary" if @offer.user == current_user %>
 
-<%= link_to 'Voltar', offers_path, :class => "btn btn-primary btn-large" %>
+<%= link_to 'Voltar', offers_path, :class => "btn btn-primary" %>
 
 <div class="iffer_questions">
 	<h3>Perguntas</h3>
@@ -70,9 +70,10 @@
 				<%= form_tag create_question_offers_path do %>
 					<%= hidden_field_tag :user_id, current_user.id %>
 					<%= hidden_field_tag :offer_id, @offer.id %>
-					<%= text_area_tag :text, "", :placeholder => "Escreve seu comentário..." %>
-					<%= submit_tag "Salvar", :class => "btn-primary" %>
-				<% end -%>
+					<%= text_area_tag :text, "", :placeholder => "úvidas? Pergunte" %>
+					<br/>
+					<%= submit_tag "Salvar", :class => "btn btn-primary" %>
+				<% end %>
 			</td></tr>
 			<% @offer.questions.each do |question| %>
 				<tr><td><%= question.user.name %></td><td><%= question.text %></td></tr>

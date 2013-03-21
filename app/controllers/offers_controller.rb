@@ -41,6 +41,7 @@ class OffersController < ApplicationController
 
   def create
     @offer = Offer.new(params[:offer])
+    @offer.price = params[:offer][:price].gsub("R$","").gsub(".","").gsub(",",".").to_f
     @offer.user_id = current_user.id
     respond_to do |format|
       if @offer.save
@@ -55,7 +56,7 @@ class OffersController < ApplicationController
 
   def update
     @offer = Offer.find(params[:id])
-
+    @offer.price = params[:offer][:price].gsub("R$","").gsub(".","").gsub(",",".").to_f
     respond_to do |format|
       if @offer.update_attributes(params[:offer])
         format.html { redirect_to @offer, notice: 'Offer was successfully updated.' }
