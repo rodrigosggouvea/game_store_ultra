@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :price %><br />
-    <%= f.text_field :price %>
+    <%= f.text_field :price, :id => "dindin" %>
   </div>
   <div class="field">
     <%= f.label :text %><br />
@@ -37,3 +37,9 @@
     <%= f.submit "Salvar", :class => "btn-primary btn-large" %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#dindin").maskMoney({showSymbol:true, symbol:"R$", decimal:",", thousands:"."});
+    });
+</script>
