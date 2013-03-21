@@ -1,4 +1,4 @@
-<%= nested_form_for(@offer) do |f| %>
+<%= nested_form_for @offer, :class=>"form-horizontal" do |f| %>
   <% if @offer.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@offer.errors.count, "error") %> prohibited this offer from being saved:</h2>
@@ -12,15 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br />
+    <%= f.label :title, "Título" %>
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :price %><br />
+    <%= f.label :price, "Preco" %>
     <%= f.text_field :price, :id => "dindin" %>
   </div>
   <div class="field">
-    <%= f.label :text %><br />
+    <%= f.label :text, "Texto" %>
     <%= f.text_area :text %>
   </div>
   <div class="images">
