@@ -1,12 +1,12 @@
-<h1>Listing offers</h1>
+<h1>Lista de Ofertas</h1>
 
 <% if @offers.any? %>
 <table>
   <tr>
-    <th>User</th>
-    <th>Platform title</th>
-    <th>Price</th>
-    <th>Text</th>
+    <th>Usuário</th>
+    <th>Plataforma</th>
+    <th>Preco</th>
+    <th>Texto</th>
     <th></th>
     <th></th>
     <th></th>
@@ -18,9 +18,9 @@
     <td><%= offer.platform_title_id %></td>
     <td><%= offer.price %></td>
     <td><%= offer.text %></td>
-    <td><%= link_to 'Show', offer %></td>
-    <td><%= link_to 'Edit', edit_offer_path(offer) %></td>
-    <td><%= link_to 'Destroy', offer, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Exibir', offer %></td>
+    <td><%= link_to 'Editar', edit_offer_path(offer) %></td>
+    <td><%= link_to 'Remover', offer, confirm: 'Tem Certeza?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
@@ -28,4 +28,4 @@
 
 <br />
 
-<%= link_to 'New Offer', new_offer_path %>
+<%= link_to 'Nova Oferta', new_offer_path %>
