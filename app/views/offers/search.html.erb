@@ -8,13 +8,10 @@
 <% if @offers %>
 	<table class = "table">
 		<% @offers.each do |offer| %>
-			<%= link_to offer do %>
 			<tr>
-				<!--td><%#= image_tag offer.offer_images.first.image.url(:thumb) %></td-->
-				<td><%= offer.title %></td>
-				<td><%= offer.price %></td>
+				<td><%= link_to offer.title, offer %></td>
+				<td><%= link_to offer.price, offer %></td>
 			</tr>
-			<% end %>
 			<hr\>
 		<% end %>
 	</table>
