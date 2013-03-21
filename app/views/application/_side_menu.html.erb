@@ -1,4 +1,4 @@
-<%#= image_tag "http://graph.facebook.com/#{User.find(current_user).uid}/picture" %>
+<%= image_tag "http://graph.facebook.com/#{User.find(current_user).uid}/picture" %>
 <h4><%= User.find(current_user).name %></h4>
 <ul class="nav nav-tabs nav-stacked">
 	<li class="nav-header">navegação</li>
