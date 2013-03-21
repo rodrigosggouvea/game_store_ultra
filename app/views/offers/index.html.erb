@@ -1,28 +1,23 @@
-<h1>Listing offers</h1>
+<h1>Minhas Ofertas</h1>
 
 <% if @offers.any? %>
-<table>
+<table class="table">
+  <thead>
   <tr>
-    <th>User</th>
-    <th>Platform title</th>
-    <th>Price</th>
-    <th>Text</th>
-    <th></th>
+    <th>Título</th>
     <th></th>
     <th></th>
   </tr>
-
+  </thead>
+<tbody>
 <% @offers.each do |offer| %>
   <tr>
-    <td><%= offer.user_id %></td>
-    <td><%= offer.platform_title_id %></td>
-    <td><%= offer.price %></td>
-    <td><%= offer.text %></td>
-    <td><%= link_to 'Show', offer %></td>
-    <td><%= link_to 'Edit', edit_offer_path(offer) %></td>
-    <td><%= link_to 'Destroy', offer, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to offer.title, offer %></td>
+    <td><%= link_to 'Editar', edit_offer_path(offer) %></td>
+    <td><%= link_to 'Apagar', offer, confirm: 'Tem certeza?', method: :delete %></td>
   </tr>
 <% end %>
+</tbody>
 </table>
 <% end %>
 
